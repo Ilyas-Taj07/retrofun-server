@@ -8,7 +8,7 @@ const server = http.createServer(app)
 
 export const io = new Server(server, {
     cors: {
-        origin: ["http://localhost:3000", "https://retrofun-ilyas.netlify.app/", "https://retrofun-ilyas.netlify.app"]
+        origin: ["http://localhost:3000", "https://retrofun-ilyas.netlify.app"]
     }
 })
 

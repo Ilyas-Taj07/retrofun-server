@@ -7,12 +7,12 @@ exports.io = void 0;
 const express_1 = __importDefault(require("express"));
 const http_1 = __importDefault(require("http"));
 const socket_io_1 = require("socket.io");
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8081;
 const app = (0, express_1.default)();
 const server = http_1.default.createServer(app);
 exports.io = new socket_io_1.Server(server, {
     cors: {
-        origin: "http://localhost:3000"
+        origin: ["http://localhost:3000", "https://retrofun-ilyas.netlify.app"]
     }
 });
 let messages = [];
