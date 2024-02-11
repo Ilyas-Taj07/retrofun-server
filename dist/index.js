@@ -75,6 +75,27 @@ app.get('/', (req, res) => {
     ``;
     res.send('Retro Fun');
 });
+app.get('/all-users', (req, res) => {
+    res.status(200).json({
+        result: users
+    });
+});
+app.get('/room-count/:roomId', (req, res) => {
+    const { roomId } = req.params;
+    let result = users.filter(item => item.room === roomId);
+    res.status(200).json({
+        room: roomId,
+        result: result
+    });
+});
+app.get('/room-messages/:roomId', (req, res) => {
+    const { roomId } = req.params;
+    let result = messages.filter(item => item.room === roomId);
+    res.status(200).json({
+        room: roomId,
+        messages: result
+    });
+});
 server.listen(PORT, () => {
     console.log(`server is running on ${PORT}`);
 });
